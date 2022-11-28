@@ -1,29 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { Grid } from '@material-ui/core';
-import youtube from './api/youtube'
-import { SearchBar, VideoList, VideoDetail } from './Components';
-
-class App extends React.Component {
-  render() {
-    return (
-      <Grid justify="center" container spacing={16}>
-        <Grid item xs={12}>
-          <Grid container spacing={16}>
-            <Grid item xs={12}>
-              Search bar
-            </Grid>
-            <Grid item xs={8}>
-              Video details
-            </Grid>
-            <Grid item xs={4}>
-              Video list
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    )
-  }
+const App = () => {
+  return (
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
