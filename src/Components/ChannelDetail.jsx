@@ -5,24 +5,21 @@ import { Box } from "@mui/material";
 import { Videos, ChannelCard } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 
+
 const ChannelDetail = () => {
-  const [channelDetail, setChannelDetail] = useState();
-  const [videos, setVideos] = useState(null);
+  const [channelDetail, setChannelDetail] = useState(null);
+  const [videos, setVideos] = useState([]);
 
   const { id } = useParams();
 
+  console.log(channelDetail, videos);
+
   useEffect(() => {
-    const fetchResults = async () => {
-      const data = await fetchFromAPI(`channels?part=snippet&id=${id}`);
+    fetchFromAPI(`channels?part=snippet&id=${id}`)
+    .then((data) => setChannelDetail(data?.items[0]));
 
-      setChannelDetail(data?.items[0]);
-
-      const videosData = await fetchFromAPI(`search?channelId=${id}&part=snippet%2Cid&order=date`);
-
-      setVideos(videosData?.items);
-    };
-
-    fetchResults();
+    fetchFromAPI(`search?ChannelId=${id}&part=snippet&order-data`)
+    .then((data) => setVideos(data?.items))
   }, [id]);
 
   return (
