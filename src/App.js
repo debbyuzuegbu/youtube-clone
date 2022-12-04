@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { Navbar, Feed, VideoDetail, ChannelDetail, SearchFeed, SearchBar } from './Components';
+import { Navbar, Feed, VideoDetail, ChannelDetail, SearchFeed } from './Components';
 
 import ErrorBoundary from 'react-error-boundaries';
 
