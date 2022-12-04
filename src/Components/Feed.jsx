@@ -9,9 +9,10 @@ const Feed = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-      .then((data) => setVideos(data.items))
-    }, [selectedCategory]);
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideos(data.items)
+    );
+  }, [selectedCategory]);
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
@@ -22,9 +23,9 @@ const Feed = () => {
           px: { sx: 0, md: 2 },
         }}
       >
-        <SideBar 
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
+        <SideBar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
         />
         <Typography
           className="copyright"
